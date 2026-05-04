@@ -693,6 +693,7 @@ header h1 {
 .btn-mode-sm:active { background: rgba(74,222,128,0.1); border-color: var(--accent2); }
 .setup-desc-text { white-space: pre-line; font-size: 0.88rem; line-height: 1.8; color: var(--muted); }
 .setup-abstinence-note { font-size: 0.82rem; color: var(--accent2); margin-top: 4px; }
+.settings-female-note { font-size: 0.78rem; color: var(--muted); line-height: 1.6; margin-top: 10px; padding: 8px 10px; background: rgba(74,222,128,0.06); border-radius: 8px; border-left: 2px solid rgba(74,222,128,0.3); }
 .gender-note {
   font-size: 0.78rem;
   color: var(--muted);

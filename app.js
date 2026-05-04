@@ -67,6 +67,7 @@ const T = {
     settingsAppModeLabel: 'アプリモード',
     modeGeneral: '一般モード',
     modeAbstinence: '禁欲モード',
+    settingsFemaleNote: '女性モードでは、性的活動による影響は個人差が大きいため、軽く記録できる形にしています。ご自身のペースで調整してください。',
     penaltyConfirmTitle: '本当に記録しますか？',
     penaltyConfirmBody: (label, pct) => `「${label}」を記録します\nポイントが ${pct}% 減少（最低100pt保証）`,
     penaltyResultTitle: '記録しました',
@@ -194,6 +195,7 @@ const T = {
     settingsAppModeLabel: 'App Mode',
     modeGeneral: 'General Mode',
     modeAbstinence: 'Abstinence Mode',
+    settingsFemaleNote: 'In General Mode, the impact of sexual activity varies greatly by individual, so it is kept as a light log. Adjust at your own pace.',
     penaltyConfirmTitle: 'Are you sure?',
     penaltyConfirmBody: (label, pct) => `Log "${label}"?\nPoints will decrease by ${pct}% (min 100pt guaranteed)`,
     penaltyResultTitle: 'Logged',
@@ -741,7 +743,18 @@ function getPenalties() {
     return [
       { key: 'porn_solo',   icon: '⛔', img: './pen-porn.jpg',    ja: 'ポルノ＋自慰',      en: 'Porn + Solo',        rate: 0.35, isEjac: true,  isSoloEjac: true,  isFemaleB: false, isSexEjac: false },
       { key: 'solo',        icon: '💜', img: './pen-solo.jpg',    ja: '自慰（ポルノなし）', en: 'Self-care Solo',      rate: 0.10, isEjac: false, isSoloEjac: false, isFemaleB: true,  isSexEjac: false },
-      { key: 'sex',         icon: '💛', img: './pen-sex.jpg',     ja: 'セックス',            en: 'Sex',                 rate: sexEjacRate, isEjac: sexEjacRate > 0, isSoloEjac: false, isFemaleB: false, isSexEjac: true },
+      { key: 'sex',
+        icon: mode === 'general' ? '💕' : '💛',
+        img: './pen-sex.jpg',
+        ja: '親密な時間',
+        en: 'Intimate Time',
+        desc: mode === 'general'
+          ? 'パートナーとの親密な時間。自分の体調や気持ちに合わせて記録できます'
+          : 'パートナーとの親密な時間。呼吸と意識を合わせ、エネルギーを高める',
+        descEn: mode === 'general'
+          ? 'Intimate time with your partner. Log it at your own pace and comfort level.'
+          : 'Intimate time with your partner. Align your breath and presence, and elevate your energy.',
+        rate: sexEjacRate, isEjac: sexEjacRate > 0, isSoloEjac: false, isFemaleB: false, isSexEjac: true },
       { key: 'junk',        icon: '🍔', img: './pen-junk.jpg',    ja: 'ジャンクフード',        en: 'Junk Food',             rate: 0.10, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
       { key: 'sugar',       icon: '🍬', img: './pen-sugar.jpg',   ja: '糖質過多',               en: 'Excess Sugar',           rate: 0.05, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
       { key: 'alcohol',     icon: '🍺', img: './pen-alcohol.jpg', ja: '過度な飲酒',            en: 'Excessive Alcohol',     rate: 0.10, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
@@ -1755,9 +1768,12 @@ function openPenaltyConfirm(key) {
 
   const effectiveRate = getEffectivePenaltyRate(p);
   const box = document.getElementById('penalty-confirm-box');
-  const confirmBody = effectiveRate === 0
-    ? (p.isSexEjac ? t.penaltyWithinLimit : t.penaltyLogOnly)
-    : t.penaltyConfirmBody(label, Math.round(effectiveRate * 100));
+  const customDesc = lang === 'en' ? p.descEn : p.desc;
+  const confirmBody = customDesc
+    ? customDesc
+    : (effectiveRate === 0
+      ? (p.isSexEjac ? t.penaltyWithinLimit : t.penaltyLogOnly)
+      : t.penaltyConfirmBody(label, Math.round(effectiveRate * 100)));
   const ptsPreview = effectiveRate === 0
     ? `${Math.round(points).toLocaleString()} pt（${t.noChange}）`
     : `${Math.round(points).toLocaleString()} pt → ${applyPenaltyCalc(points, effectiveRate).toLocaleString()} pt`;
@@ -2289,6 +2305,8 @@ function updateSettingsModeDisplay() {
   if (el) el.textContent = tr().currentMode(gender);
   const appModeEl = document.getElementById('current-app-mode-info');
   if (appModeEl) appModeEl.textContent = tr().currentAppMode(mode);
+  const femaleNote = document.getElementById('settings-female-note');
+  if (femaleNote) femaleNote.classList.toggle('hidden', !(gender === 'female' && mode === 'general'));
 }
 
 // ========== EVENTS ==========
@@ -2417,6 +2435,8 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       setMode(btn.dataset.mode);
       updateSettingsModeDisplay();
+      const fn = document.getElementById('settings-female-note');
+      if (fn) fn.classList.toggle('hidden', !(gender === 'female' && mode === 'general'));
       if (startDate) render();
     });
   });
