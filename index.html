@@ -5,9 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="Energy">
+  <meta name="apple-mobile-web-app-title" content="Vital">
   <meta name="theme-color" content="#0d1a0d">
-  <title>Energy Tracker</title>
+  <meta property="og:title" content="Vital Tracker">
+  <meta property="og:description" content="活力と自分を高める習慣トラッカー">
+  <meta property="og:type" content="website">
+  <title>Vital Tracker</title>
   <link rel="manifest" href="./manifest.json">
   <link rel="stylesheet" href="./style.css?v=12">
   <!-- Google tag (gtag.js) -->
@@ -35,6 +38,10 @@
         <div class="gender-face" style="background-image:url('./female2.jpg');background-position:50% 10%"></div>
         <span data-i18n="genderFemale">女性モード</span>
       </button>
+      <button class="btn-gender" data-gender="other">
+        <div class="gender-face gender-face-other">🌿</div>
+        <span data-i18n="genderOther">その他</span>
+      </button>
     </div>
     <p class="gender-note" data-i18n="genderNote">後から設定で変更できます</p>
     <p class="age-note" data-i18n="ageNote">※ 本アプリは18歳以上を対象としています</p>
@@ -45,7 +52,8 @@
     <button class="btn-lang btn-lang-setup">EN</button>
     <div class="setup-icon">⚡</div>
     <h2 data-i18n="appTitle">Energy Tracker</h2>
-    <p data-i18n="setupDesc">エネルギーを積み上げ、自分を進化させよう。</p>
+    <p data-i18n="setupDesc" class="setup-desc-text">Vital Trackerは、自分の活力と集中力を高めるための習慣管理アプリです。</p>
+    <p id="setup-abstinence-note" class="setup-abstinence-note hidden" data-i18n="setupAbstinenceNote">禁欲モードでは、より深い自己コントロールに関する活動も記録できます。</p>
     <label for="start-date-input" data-i18n="startDateLabel">開始日を選択</label>
     <input type="date" id="start-date-input" class="date-input">
     <div id="setup-period-section" class="setup-period-section hidden">
@@ -256,6 +264,18 @@
       <div class="modal-header-row">
         <div class="modal-title" data-i18n="settingsTitle">設定</div>
         <button id="btn-settings-close" class="modal-close-btn">✕</button>
+      </div>
+      <div class="settings-section">
+        <div class="settings-label" data-i18n="settingsAppModeLabel">アプリモード</div>
+        <div class="gender-buttons gender-buttons-sm">
+          <button class="btn-mode-sm" data-mode="general">
+            <span>🌿</span><span data-i18n="modeGeneral">一般モード</span>
+          </button>
+          <button class="btn-mode-sm" data-mode="abstinence">
+            <span>⚡</span><span data-i18n="modeAbstinence">禁欲モード</span>
+          </button>
+        </div>
+        <div class="current-mode-info" id="current-app-mode-info"></div>
       </div>
       <div class="settings-section">
         <div class="settings-label" data-i18n="settingsModeLabel">モードを変更</div>

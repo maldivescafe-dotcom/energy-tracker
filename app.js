@@ -6,18 +6,20 @@ let lang = localStorage.getItem('energy_lang') || 'ja';
 
 const T = {
   ja: {
-    appTitle: 'Energy Tracker',
+    appTitle: 'Vital Tracker',
     genderDesc: 'あなたのモードを選んでください',
     genderNote: '後から設定で変更できます',
     ageNote: '※ 本アプリは18歳以上を対象としています',
     genderMale: '男性モード',
     genderFemale: '女性モード',
-    setupDesc: 'エネルギーを積み上げ、自分を進化させよう。',
+    genderOther: 'その他',
+    setupDesc: 'Vital Trackerは、自分の活力と集中力を高めるための習慣管理アプリです。毎日の活動を記録することで、エネルギーの流れを意識的に整え、自分を少しずつ強くしていきます。体を動かし、心を整え、良い習慣を積み重ねる。あなたらしいペースで続けていきましょう。',
+    setupAbstinenceNote: '禁欲モードでは、より深い自己コントロールに関する活動も記録できます。',
     startDateLabel: '開始日を選択',
     btnStart: 'スタートする',
     setupPeriodLabel: '最終生理開始日（任意）',
     setupPeriodHint: '入力すると生理周期に合わせたメッセージが表示されます',
-    headerTitle: '⚡ Energy Tracker',
+    headerTitle: '⚡ Vital Tracker',
     activityBtnText: '活動を記録する',
     activityModalTitle: '活動を記録する',
     activityModalDesc: '今日行ったことをタップしてください',
@@ -49,18 +51,22 @@ const T = {
     settingsFemaleLimit: '「適度」の上限（回/週）',
     btnResetAll: '全データをリセット',
     btnSettingsDone: '✓ 完了',
-    shareTitle: 'Energy Tracker',
+    shareTitle: 'Vital Tracker',
     clipboardMsg: 'クリップボードにコピーしました',
     langBtn: 'EN',
     startedPrefix: '開始日：',
     daysUnit: '日継続中',
     todayGain: (n) => n >= 0 ? `今日 +${n}pt` : `今日 ${n}pt`,
-    shareText: (pts, days) => `Energy Tracker ${days}日継続中！⚡ 累計 ${pts.toLocaleString()} pt 達成！`,
+    shareText: (pts, days) => `Vital Tracker ${days}日継続中！⚡ 累計 ${pts.toLocaleString()} pt 達成！`,
     formatDate: (d) => `${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日`,
     alertNoDate: '開始日を選択してください',
     alertInvalidDate: '日付が正しくありません',
     alertFutureDate: '未来の日付は設定できません',
     currentMode: (m) => m === 'female' ? '現在：女性モード' : '現在：男性モード',
+    currentAppMode: (m) => m === 'abstinence' ? '現在：禁欲モード ⚡' : '現在：一般モード 🌿',
+    settingsAppModeLabel: 'アプリモード',
+    modeGeneral: '一般モード',
+    modeAbstinence: '禁欲モード',
     penaltyConfirmTitle: '本当に記録しますか？',
     penaltyConfirmBody: (label, pct) => `「${label}」を記録します\nポイントが ${pct}% 減少（最低100pt保証）`,
     penaltyResultTitle: '記録しました',
@@ -127,18 +133,20 @@ const T = {
     effectsAllUnlocked: '🏆 全効果を解放済み！',
   },
   en: {
-    appTitle: 'Energy Tracker',
+    appTitle: 'Vital Tracker',
     genderDesc: 'Choose your mode',
     genderNote: 'You can change this later in Settings',
     ageNote: '* This app is intended for users 18 and older.',
     genderMale: 'Male Mode',
     genderFemale: 'Female Mode',
-    setupDesc: 'Build your energy and evolve every day.',
+    genderOther: 'Other',
+    setupDesc: 'Vital Tracker is a habit management app to boost your vitality and focus. By logging your daily activities, you cultivate awareness of your energy and grow stronger, one step at a time. Move your body, calm your mind, build good habits. Keep going at your own pace.',
+    setupAbstinenceNote: 'In Abstinence Mode, you can also log activities related to deeper self-control.',
     startDateLabel: 'Start Date',
     btnStart: 'Start',
     setupPeriodLabel: 'Last period start date (optional)',
     setupPeriodHint: 'Enables cycle-matched messages when entered',
-    headerTitle: '⚡ Energy Tracker',
+    headerTitle: '⚡ Vital Tracker',
     activityBtnText: 'Log Activity',
     activityModalTitle: 'Log Activity',
     activityModalDesc: 'Tap what you did today',
@@ -170,18 +178,22 @@ const T = {
     settingsFemaleLimit: '"Moderate" limit (times/week)',
     btnResetAll: 'Reset All Data',
     btnSettingsDone: '✓ Done',
-    shareTitle: 'Energy Tracker',
+    shareTitle: 'Vital Tracker',
     clipboardMsg: 'Copied to clipboard',
     langBtn: 'JP',
     startedPrefix: 'Started: ',
     daysUnit: ' days streak',
     todayGain: (n) => n >= 0 ? `Today +${n}pt` : `Today ${n}pt`,
-    shareText: (pts, days) => `Energy Tracker — Day ${days}! ⚡ ${pts.toLocaleString()} pts total!`,
+    shareText: (pts, days) => `Vital Tracker — Day ${days}! ⚡ ${pts.toLocaleString()} pts total!`,
     formatDate: (d) => `${d.getFullYear()}/${String(d.getMonth()+1).padStart(2,'0')}/${String(d.getDate()).padStart(2,'0')}`,
     alertNoDate: 'Please select your start date.',
     alertInvalidDate: 'Invalid date.',
     alertFutureDate: 'Future dates cannot be selected.',
     currentMode: (m) => m === 'female' ? 'Current: Female Mode' : 'Current: Male Mode',
+    currentAppMode: (m) => m === 'abstinence' ? 'Current: Abstinence Mode ⚡' : 'Current: General Mode 🌿',
+    settingsAppModeLabel: 'App Mode',
+    modeGeneral: 'General Mode',
+    modeAbstinence: 'Abstinence Mode',
     penaltyConfirmTitle: 'Are you sure?',
     penaltyConfirmBody: (label, pct) => `Log "${label}"?\nPoints will decrease by ${pct}% (min 100pt guaranteed)`,
     penaltyResultTitle: 'Logged',
@@ -661,6 +673,9 @@ const RECOMMEND_LINKS_EN = [
 
 // Gender-aware activity label/icon
 function actLabel(a) {
+  if (a.key === 'tantra' && mode === 'general') {
+    return lang === 'en' ? 'Deep Intimate Time' : '深い親密な時間';
+  }
   if (gender === 'female' && a.jaFemale) return lang === 'en' ? (a.enFemale || a.en) : a.jaFemale;
   return lang === 'en' ? a.en : a.ja;
 }
@@ -732,7 +747,7 @@ function getPenalties() {
       { key: 'alcohol',     icon: '🍺', img: './pen-alcohol.jpg', ja: '過度な飲酒',            en: 'Excessive Alcohol',     rate: 0.10, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
       { key: 'bad_sleep',   icon: '🌙', img: './pen-sleep.jpg',   ja: '睡眠不足・夜更かし',    en: 'Sleep Deprivation',     rate: 0.08, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
       { key: 'sns',         icon: '📱', img: './pen-sns.jpg',     ja: '長時間SNS',              en: 'Long SNS Scroll',       rate: 0.05, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
-    ];
+    ].filter(p => mode === 'abstinence' || (p.key !== 'porn_solo' && p.key !== 'solo'));
   }
   return [
     { key: 'porn_solo',   icon: '⛔', img: './pen-porn.jpg',    ja: 'ポルノ＋自慰（射精）',  en: 'Porn + Solo (ejac)',    rate: 0.65, isEjac: true,  isSoloEjac: true,  isFemaleB: false, isSexEjac: false },
@@ -743,7 +758,7 @@ function getPenalties() {
     { key: 'alcohol',     icon: '🍺', img: './pen-alcohol.jpg', ja: '過度な飲酒',              en: 'Excessive Alcohol',     rate: 0.10, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
     { key: 'bad_sleep',   icon: '🌙', img: './pen-sleep.jpg',   ja: '睡眠不足・夜更かし',      en: 'Sleep Deprivation',     rate: 0.08, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
     { key: 'sns',         icon: '📱', img: './pen-sns.jpg',     ja: '長時間SNS',                en: 'Long SNS Scroll',       rate: 0.05, isEjac: false, isSoloEjac: false, isFemaleB: false, isSexEjac: false },
-  ];
+  ].filter(p => mode === 'abstinence' || (p.key !== 'porn_solo' && p.key !== 'solo'));
 }
 
 // ========== EFFECT DAYS ==========
@@ -765,6 +780,7 @@ function setSoloEjacTime() {
 let points   = 0;
 let startDate = null;
 let gender   = 'male';
+let mode     = 'general';
 let bgIndex  = 0;
 
 function loadState() {
@@ -773,6 +789,7 @@ function loadState() {
   const ss  = localStorage.getItem('energy_start');
   startDate = ss ? new Date(ss) : null;
   gender    = localStorage.getItem('energy_gender') || null;
+  mode      = localStorage.getItem('energy_mode') || 'general';
   lang      = localStorage.getItem('energy_lang') || 'ja';
   bgIndex   = parseInt(localStorage.getItem('energy_bg') || '0');
 }
@@ -787,8 +804,13 @@ function saveState(date) {
 }
 
 function setGender(g) {
-  gender = g;
-  localStorage.setItem('energy_gender', g);
+  gender = (g === 'other') ? 'female' : g;
+  localStorage.setItem('energy_gender', gender);
+}
+
+function setMode(m) {
+  mode = m;
+  localStorage.setItem('energy_mode', m);
 }
 
 function clearAllData() {
@@ -801,7 +823,7 @@ function clearAllData() {
     'energy_last_solo_ejac', 'energy_history',
     'energy_sex_ejac_week', 'energy_forgiveness_q', 'energy_last_ejac',
     'energy_workout_streak', 'energy_last_workout_date',
-    'energy_gender', 'energy_welcomed',
+    'energy_gender', 'energy_mode', 'energy_welcomed',
     'energy_sex_ejac_pct_m', 'energy_sex_ejac_pct_f',
     'energy_sex_weekly_limit', 'energy_forgiveness_days', 'energy_sex_no_ejac',
     'energy_period_start',
@@ -810,6 +832,7 @@ function clearAllData() {
   points = 0;
   startDate = null;
   gender = null;
+  mode = 'general';
 }
 
 // ========== DAY CALCULATION ==========
@@ -2205,6 +2228,9 @@ function showSetup() {
   const mm = String(today.getMonth() + 1).padStart(2, '0');
   const dd = String(today.getDate()).padStart(2, '0');
   document.getElementById('start-date-input').value = `${yyyy}-${mm}-${dd}`;
+  // Show abstinence mode note
+  const abstinenceNote = document.getElementById('setup-abstinence-note');
+  if (abstinenceNote) abstinenceNote.classList.toggle('hidden', mode !== 'abstinence');
   // Show period input for female mode
   const periodSection = document.getElementById('setup-period-section');
   if (periodSection) periodSection.classList.toggle('hidden', gender !== 'female');
@@ -2261,12 +2287,15 @@ function closeSettings() {
 function updateSettingsModeDisplay() {
   const el = document.getElementById('current-mode-info');
   if (el) el.textContent = tr().currentMode(gender);
+  const appModeEl = document.getElementById('current-app-mode-info');
+  if (appModeEl) appModeEl.textContent = tr().currentAppMode(mode);
 }
 
 // ========== EVENTS ==========
 
 function onGenderSelect(g) {
   setGender(g);
+  setMode(g === 'male' ? 'abstinence' : 'general');
   showSetup();
 }
 
@@ -2382,6 +2411,16 @@ document.addEventListener('DOMContentLoaded', () => {
       if (startDate) { render(); updateMoonPhaseBar(); }
     });
   });
+
+  // App mode toggle (general / abstinence)
+  document.querySelectorAll('.btn-mode-sm').forEach(btn => {
+    btn.addEventListener('click', () => {
+      setMode(btn.dataset.mode);
+      updateSettingsModeDisplay();
+      if (startDate) render();
+    });
+  });
+
   document.getElementById('btn-limit-minus').addEventListener('click', () => {
     const current = getFemaleLimit();
     if (current > 1) {
