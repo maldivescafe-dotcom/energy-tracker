@@ -1186,6 +1186,8 @@ header h1 {
   justify-content: center;
   gap: 10px;
 }
+.tip-img { display: none; width: 100%; aspect-ratio: 16/9; background-size: cover; background-position: center; border-radius: 10px; }
+.tip-img.active { display: block; }
 .tip-number { font-size: 0.72rem; color: var(--muted); letter-spacing: 0.1em; font-weight: 600; }
 .tip-icon { font-size: 2.8rem; line-height: 1; }
 .tip-title { font-size: 1.05rem; font-weight: 800; color: var(--accent2); }

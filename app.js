@@ -424,29 +424,29 @@ const MESSAGES_EN = [
 // ========== DATA: EMERGENCY ==========
 
 const EMERGENCY_TIPS = [
-  { icon: '🧊', title: '冷水を顔にかける', body: '今すぐ洗面所へ行き、冷たい水で顔を洗おう。\n冷刺激が交感神経をリセットし、衝動の波が急速に引く。10秒でできる最速の応急処置。' },
-  { icon: '💪', title: '腕立て伏せ20回', body: '今すぐその場で腕立て伏せを20回やれ。\n筋肉を使うと性的エネルギーが運動エネルギーに転換される。終わったとき、衝動は半分以下になっている。' },
-  { icon: '🌬️', title: '4-7-8呼吸法', body: '鼻から4秒吸う → 7秒止める → 口から8秒吐く。\nこれを3回繰り返す。副交感神経が活性化し、脳の興奮状態が鎮まる。今すぐ始めろ。' },
-  { icon: '🚶', title: '外に出る', body: '靴を履いて外へ出ろ。5分でいい。\n環境を変えることで脳の回路が切り替わる。外の空気が引き戻してくれる。' },
-  { icon: '🧠', title: '「波乗り」テクニック', body: '衝動を消そうとするな。ただ観察しろ。\n「今自分は衝動を感じている」と心の中で実況する。衝動は平均で10〜20分しか続かない。' },
-  { icon: '🚿', title: '冷水シャワーを浴びる', body: '冷たいシャワーを1〜2分浴びろ。\nテストステロンは保たれ、ドーパミンが正常にリセットされる。世界中のアスリートが使う最強の衝動制御法だ。' },
-  { icon: '📝', title: '「なぜやめたか」を書く', body: 'メモアプリを開いて、始めた理由を今すぐ書け。\n文字にすることで前頭前皮質（理性の脳）が再び働き始める。' },
-  { icon: '🎵', title: 'テンションの上がる曲をかける', body: '好きな音楽を大音量でかけて体を動かせ。\n音楽はドーパミン回路を別の方向に向ける力がある。' },
-  { icon: '💧', title: '冷水をゆっくり飲む', body: 'コップ1杯の冷水をゆっくり飲め。\n口・喉・胃への感覚刺激が「今この瞬間」に意識を引き戻す。' },
-  { icon: '📵', title: '今すぐスマホを置く', body: 'スマホを別の部屋に置いて、5分間離れろ。\n衝動の90%はスクリーンへの接触から始まる。' },
+  { icon: '🧊', img: './tip-coldwater.JPG',   title: '冷水を顔にかける', body: '今すぐ洗面所へ行き、冷たい水で顔を洗おう。\n冷刺激が交感神経をリセットし、衝動の波が急速に引く。10秒でできる最速の応急処置。' },
+  { icon: '💪', img: './tip-workout.JPG',      title: '腕立て伏せ20回', body: '今すぐその場で腕立て伏せを20回やれ。\n筋肉を使うと性的エネルギーが運動エネルギーに転換される。終わったとき、衝動は半分以下になっている。' },
+  { icon: '🌬️', img: './tip-meditation.JPG',  title: '4-7-8呼吸法', body: '鼻から4秒吸う → 7秒止める → 口から8秒吐く。\nこれを3回繰り返す。副交感神経が活性化し、脳の興奮状態が鎮まる。今すぐ始めろ。' },
+  { icon: '🚶', img: './tip-outside.JPG',      title: '外に出る', body: '靴を履いて外へ出ろ。5分でいい。\n環境を変えることで脳の回路が切り替わる。外の空気が引き戻してくれる。' },
+  { icon: '🧠', img: './tip-urgesurfing.JPG',  title: '「波乗り」テクニック', body: '衝動を消そうとするな。ただ観察しろ。\n「今自分は衝動を感じている」と心の中で実況する。衝動は平均で10〜20分しか続かない。' },
+  { icon: '🚿', img: './tip-shower.JPG',       title: '冷水シャワーを浴びる', body: '冷たいシャワーを1〜2分浴びろ。\nテストステロンは保たれ、ドーパミンが正常にリセットされる。世界中のアスリートが使う最強の衝動制御法だ。' },
+  { icon: '📝', img: './tip-journal.JPG',      title: '「なぜやめたか」を書く', body: 'メモアプリを開いて、始めた理由を今すぐ書け。\n文字にすることで前頭前皮質（理性の脳）が再び働き始める。' },
+  { icon: '🎵', img: './tip-music.JPG',        title: 'テンションの上がる曲をかける', body: '好きな音楽を大音量でかけて体を動かせ。\n音楽はドーパミン回路を別の方向に向ける力がある。' },
+  { icon: '💧', img: './tip-drink.JPG',        title: '冷水をゆっくり飲む', body: 'コップ1杯の冷水をゆっくり飲め。\n口・喉・胃への感覚刺激が「今この瞬間」に意識を引き戻す。' },
+  { icon: '📵', img: './tip-nophone.JPG',      title: '今すぐスマホを置く', body: 'スマホを別の部屋に置いて、5分間離れろ。\n衝動の90%はスクリーンへの接触から始まる。' },
 ];
 
 const EMERGENCY_TIPS_EN = [
-  { icon: '🧊', title: 'Splash Cold Water on Your Face', body: 'Go to the sink right now and wash your face with cold water.\nThe cold stimulus resets your sympathetic nervous system. Takes 10 seconds.' },
-  { icon: '💪', title: '20 Push-ups Right Now', body: 'Drop and do 20 push-ups where you stand.\nUsing your muscles converts sexual energy into physical energy.' },
-  { icon: '🌬️', title: '4-7-8 Breathing', body: 'Inhale for 4 seconds → Hold for 7 seconds → Exhale for 8 seconds.\nRepeat 3 times. This activates the parasympathetic nervous system. Start now.' },
-  { icon: '🚶', title: 'Go Outside', body: 'Put on your shoes and step outside. 5 minutes is enough.\nChanging your environment switches your brain\'s circuits.' },
-  { icon: '🧠', title: 'The "Urge Surfing" Technique', body: 'Don\'t try to destroy the urge. Just observe it.\nSay: "I am feeling an urge right now." Urges last an average of 10–20 minutes.' },
-  { icon: '🚿', title: 'Take a Cold Shower', body: 'Take a cold shower for 1–2 minutes.\nTestosterone is preserved, dopamine resets. Used by athletes worldwide.' },
-  { icon: '📝', title: 'Write Down "Why You Started"', body: 'Open your notes app and write your reasons right now.\nPutting it in words re-engages your prefrontal cortex (rational brain).' },
-  { icon: '🎵', title: 'Play Energizing Music', body: 'Put on your favorite music at full volume and move your body.\nMusic redirects dopamine circuits — it can override the urge.' },
-  { icon: '💧', title: 'Drink Cold Water Slowly', body: 'Slowly drink a full glass of cold water.\nSensory stimulation brings consciousness back to the present moment.' },
-  { icon: '📵', title: 'Put Down Your Phone Now', body: 'Place your phone in another room and step away for 5 minutes.\n90% of urges begin with screen contact.' },
+  { icon: '🧊', img: './tip-coldwater.JPG',   title: 'Splash Cold Water on Your Face', body: 'Go to the sink right now and wash your face with cold water.\nThe cold stimulus resets your sympathetic nervous system. Takes 10 seconds.' },
+  { icon: '💪', img: './tip-workout.JPG',      title: '20 Push-ups Right Now', body: 'Drop and do 20 push-ups where you stand.\nUsing your muscles converts sexual energy into physical energy.' },
+  { icon: '🌬️', img: './tip-meditation.JPG',  title: '4-7-8 Breathing', body: 'Inhale for 4 seconds → Hold for 7 seconds → Exhale for 8 seconds.\nRepeat 3 times. This activates the parasympathetic nervous system. Start now.' },
+  { icon: '🚶', img: './tip-outside.JPG',      title: 'Go Outside', body: 'Put on your shoes and step outside. 5 minutes is enough.\nChanging your environment switches your brain\'s circuits.' },
+  { icon: '🧠', img: './tip-urgesurfing.JPG',  title: 'The "Urge Surfing" Technique', body: 'Don\'t try to destroy the urge. Just observe it.\nSay: "I am feeling an urge right now." Urges last an average of 10–20 minutes.' },
+  { icon: '🚿', img: './tip-shower.JPG',       title: 'Take a Cold Shower', body: 'Take a cold shower for 1–2 minutes.\nTestosterone is preserved, dopamine resets. Used by athletes worldwide.' },
+  { icon: '📝', img: './tip-journal.JPG',      title: 'Write Down "Why You Started"', body: 'Open your notes app and write your reasons right now.\nPutting it in words re-engages your prefrontal cortex (rational brain).' },
+  { icon: '🎵', img: './tip-music.JPG',        title: 'Play Energizing Music', body: 'Put on your favorite music at full volume and move your body.\nMusic redirects dopamine circuits — it can override the urge.' },
+  { icon: '💧', img: './tip-drink.JPG',        title: 'Drink Cold Water Slowly', body: 'Slowly drink a full glass of cold water.\nSensory stimulation brings consciousness back to the present moment.' },
+  { icon: '📵', img: './tip-nophone.JPG',      title: 'Put Down Your Phone Now', body: 'Place your phone in another room and step away for 5 minutes.\n90% of urges begin with screen contact.' },
 ];
 
 const EMERGENCY_AFFIRMATIONS = [
@@ -1817,6 +1817,14 @@ function renderTip() {
   const tips = getTips();
   const affs = getAffirmations();
   const tip = tips[currentTipIndex];
+  const tipImgEl = document.getElementById('tip-img');
+  if (tip.img) {
+    tipImgEl.style.backgroundImage = `url('${tip.img}')`;
+    tipImgEl.classList.add('active');
+  } else {
+    tipImgEl.style.backgroundImage = '';
+    tipImgEl.classList.remove('active');
+  }
   document.getElementById('tip-number').textContent = `TIP ${currentTipIndex + 1} / ${tips.length}`;
   document.getElementById('tip-icon').textContent = tip.icon;
   document.getElementById('tip-title').textContent = tip.title;
