@@ -1288,7 +1288,13 @@ header h1 {
   flex-direction: column;
   gap: 6px;
   margin-bottom: 10px;
+  max-height: 126px;
+  overflow-y: auto;
+  scroll-behavior: smooth;
 }
+.effects-list::-webkit-scrollbar { width: 3px; }
+.effects-list::-webkit-scrollbar-track { background: transparent; }
+.effects-list::-webkit-scrollbar-thumb { background: rgba(74,222,128,0.3); border-radius: 3px; }
 .effect-item {
   display: flex;
   align-items: center;

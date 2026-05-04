@@ -1542,6 +1542,16 @@ function renderEffects() {
     `;
     list.appendChild(item);
   });
+
+  // 解放済み2つ＋次の1つが見えるようにスクロール位置を調整
+  const lastUnlockedIndex = effects.reduce((acc, eff, i) => effectDays >= eff.days ? i : acc, -1);
+  if (lastUnlockedIndex > 0) {
+    const scrollToIndex = Math.max(0, lastUnlockedIndex - 1);
+    const items = list.querySelectorAll('.effect-item');
+    setTimeout(() => {
+      if (items[scrollToIndex]) list.scrollTop = items[scrollToIndex].offsetTop;
+    }, 0);
+  }
 }
 
 function penaltyRateLabel(p) {
