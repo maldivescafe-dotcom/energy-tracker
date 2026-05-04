@@ -667,6 +667,40 @@ header h1 {
   box-shadow: 0 0 12px rgba(245,200,66,0.2);
   flex-shrink: 0;
 }
+.gender-screen-desc {
+  font-size: 0.92rem;
+  line-height: 1.8;
+  color: var(--text);
+  text-align: center;
+  margin: 8px 0 16px;
+  opacity: 0.9;
+}
+.gender-select-label {
+  font-size: 0.82rem;
+  color: var(--muted);
+  margin-bottom: 12px;
+}
+.btn-gender.selected {
+  border-color: var(--accent);
+  background: rgba(245,200,66,0.1);
+  box-shadow: 0 0 0 2px rgba(245,200,66,0.4);
+}
+.btn-gender-start {
+  margin-top: 12px;
+  width: 100%;
+  max-width: 280px;
+}
+.btn-gender-start:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.gender-other-note {
+  font-size: 0.75rem;
+  color: var(--muted);
+  text-align: center;
+  margin: 4px 0 8px;
+  line-height: 1.6;
+}
 .gender-face-other {
   display: flex;
   align-items: center;

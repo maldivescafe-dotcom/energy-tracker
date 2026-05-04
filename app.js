@@ -13,7 +13,9 @@ const T = {
     genderMale: '男性モード',
     genderFemale: '女性モード',
     genderOther: 'その他',
-    setupDesc: 'Vital Trackerは、自分の活力と集中力を高めるための習慣管理アプリです。毎日の活動を記録することで、エネルギーの流れを意識的に整え、自分を少しずつ強くしていきます。体を動かし、心を整え、良い習慣を積み重ねる。あなたらしいペースで続けていきましょう。',
+    genderScreenDesc: 'Vital Trackerは、自分の活力と集中力を高めるための習慣管理アプリです。毎日の活動を記録することで、エネルギーの流れを意識的に整え、自分を少しずつ強くしていきます。',
+    genderOtherNote: 'その他を選択された方は、一般モードで開始します。後から設定画面でモードを変更できます。',
+    btnGenderStart: 'はじめる',
     setupAbstinenceNote: '禁欲モードでは、より深い自己コントロールに関する活動も記録できます。',
     startDateLabel: '開始日を選択',
     btnStart: 'スタートする',
@@ -141,7 +143,9 @@ const T = {
     genderMale: 'Male Mode',
     genderFemale: 'Female Mode',
     genderOther: 'Other',
-    setupDesc: 'Vital Tracker is a habit management app to boost your vitality and focus. By logging your daily activities, you cultivate awareness of your energy and grow stronger, one step at a time. Move your body, calm your mind, build good habits. Keep going at your own pace.',
+    genderScreenDesc: 'Vital Tracker is a habit management app to boost your vitality and focus. By logging your daily activities, you cultivate awareness of your energy and grow stronger, one step at a time.',
+    genderOtherNote: 'Selecting "Other" will start you in General Mode. You can change this anytime in Settings.',
+    btnGenderStart: 'Get Started',
     setupAbstinenceNote: 'In Abstinence Mode, you can also log activities related to deeper self-control.',
     startDateLabel: 'Start Date',
     btnStart: 'Start',
@@ -836,7 +840,7 @@ function clearAllData() {
     'energy_last_solo_ejac', 'energy_history',
     'energy_sex_ejac_week', 'energy_forgiveness_q', 'energy_last_ejac',
     'energy_workout_streak', 'energy_last_workout_date',
-    'energy_gender', 'energy_mode', 'energy_welcomed',
+    'energy_gender', 'energy_mode',
     'energy_sex_ejac_pct_m', 'energy_sex_ejac_pct_f',
     'energy_sex_weekly_limit', 'energy_forgiveness_days', 'energy_sex_no_ejac',
     'energy_period_start',
@@ -2166,67 +2170,16 @@ function toggleLang() {
   if (startDate) { render(); renderRecommend(); updateMoonPhaseBar(); }
   if (document.getElementById('emergency-modal').classList.contains('open')) renderTip();
   updateSettingsModeDisplay();
-  const ws = document.getElementById('welcome-screen');
-  if (ws && !ws.classList.contains('hidden')) {
-    document.getElementById('welcome-content').innerHTML = renderWelcomeContent();
-  }
 }
 
 // ========== SCREENS ==========
 
 function showScreen(id) {
-  ['gender-screen','setup-screen','welcome-screen','main-screen'].forEach(s => {
+  ['gender-screen','setup-screen','main-screen'].forEach(s => {
     document.getElementById(s).classList.toggle('hidden', s !== id);
   });
 }
 
-// ========== WELCOME SCREEN ==========
-
-function renderWelcomeContent() {
-  const t = tr();
-  const penalties = getPenalties();
-  const sexLimit = getSexWeeklyLimit();
-  const forgiveDays = getForgivenessdays();
-
-  const rows = penalties.map(p => {
-    let rateStr;
-    if (p.isSexEjac && p.rate > 0) {
-      const freeStr = lang === 'en' ? `first ${sexLimit}/wk free` : `週${sexLimit}回まで免除`;
-      const penStr = lang === 'en' ? `then −${Math.round(p.rate*100)}%` : `以降 −${Math.round(p.rate*100)}%`;
-      rateStr = `${freeStr}<br><span style="opacity:.7">${penStr}</span>`;
-    } else if (p.rate === 0) {
-      rateStr = lang === 'en' ? 'log only' : '記録のみ';
-    } else {
-      rateStr = `−${Math.round(p.rate * 100)}%`;
-    }
-    const label = lang === 'en' ? p.en : p.ja;
-    return `<div class="welcome-row"><span class="welcome-row-icon">${p.icon}</span><span class="welcome-row-label">${label}</span><span class="welcome-row-rate">${rateStr}</span></div>`;
-
-  }).join('');
-
-  return `
-    <div class="welcome-section">
-      <div class="welcome-section-title">${t.welcomePenaltyLabel}</div>
-      ${rows}
-    </div>
-    <div class="welcome-section">
-      <div class="welcome-section-title">${t.welcomeRecoveryLabel}</div>
-      <div class="welcome-recovery-desc">${t.welcomeIntervalDesc}</div>
-      <div class="welcome-interval-rows">
-        <div class="welcome-interval-row muted">${t.welcomeInterval1}</div>
-        <div class="welcome-interval-row half">${t.welcomeInterval2}</div>
-        <div class="welcome-interval-row none">${t.welcomeInterval3}</div>
-        <div class="welcome-interval-row bonus">${t.welcomeInterval4}</div>
-      </div>
-      <div class="welcome-forgiveness-note">${t.welcomeForgivenessNote(forgiveDays)}</div>
-    </div>
-  `;
-}
-
-function showWelcome() {
-  document.getElementById('welcome-content').innerHTML = renderWelcomeContent();
-  showScreen('welcome-screen');
-}
 
 function showMain() {
   showScreen('main-screen');
@@ -2332,11 +2285,7 @@ function onStart() {
   if (periodVal && gender === 'female') {
     localStorage.setItem('energy_period_start', periodVal);
   }
-  if (!localStorage.getItem('energy_welcomed')) {
-    showWelcome();
-  } else {
-    showMain();
-  }
+  showMain();
 }
 
 function onShare() {
@@ -2372,17 +2321,25 @@ document.addEventListener('DOMContentLoaded', () => {
   loadState();
   applyLang();
 
-  // Gender screen buttons
+  // Gender screen buttons — select only, no auto-navigate
+  let _selectedGender = null;
   document.querySelectorAll('.btn-gender').forEach(btn => {
-    btn.addEventListener('click', () => onGenderSelect(btn.dataset.gender));
+    btn.addEventListener('click', () => {
+      _selectedGender = btn.dataset.gender;
+      document.querySelectorAll('.btn-gender').forEach(b => b.classList.remove('selected'));
+      btn.classList.add('selected');
+      document.getElementById('btn-gender-start').disabled = false;
+      const otherNote = document.getElementById('gender-other-note');
+      if (otherNote) otherNote.classList.toggle('hidden', _selectedGender !== 'other');
+    });
+  });
+
+  document.getElementById('btn-gender-start').addEventListener('click', () => {
+    if (_selectedGender) onGenderSelect(_selectedGender);
   });
 
   // Setup
   document.getElementById('btn-start').addEventListener('click', onStart);
-  document.getElementById('btn-welcome-start').addEventListener('click', () => {
-    localStorage.setItem('energy_welcomed', '1');
-    showMain();
-  });
 
   // Level list accordion
   document.getElementById('milestones-label-toggle').addEventListener('click', () => {
