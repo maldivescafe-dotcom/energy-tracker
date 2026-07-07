@@ -318,7 +318,12 @@ const WOMENS_TIPS = [
   { maxDays: 89,  ja: '2ヶ月。一緒にいると落ち着く、という感覚が生まれる頃。安心できる人のそばにいたい──女性がそう感じるのは、このくらいの変化が蓄積したときだと思う。' },
   { maxDays: 119, ja: '3ヶ月。この人は本物だと感じる。継続できる人は、約束を守れる人でもある。信頼できる男性というのは、それだけで唯一無二の存在になれる。' },
   { maxDays: 179, ja: '4ヶ月が過ぎた。オーラが違う。言葉では説明できないけれど、存在感が増している。そばにいると「この人、なんか特別だな」と思わせる何かがある。' },
-  { maxDays: 364, ja: '半年。本当に自分を大切にしている男性だと伝わる。それって、相手のことも大切にできる人だということ。そういう人を、女性はずっと探している。' },
+  { maxDays: 209, ja: '半年達成。本当に自分を大切にしている男性だと伝わる。それって、相手のことも大切にできる人だということ。そういう人を、女性はずっと探している。' },
+  { maxDays: 239, ja: '7ヶ月。あなたの前では素の自分でいられる──そう感じさせる安心感が育っている。女性にとってそれは、どんな肩書きよりも価値のあるもの。' },
+  { maxDays: 269, ja: '8ヶ月。落ち着き、清潔感、誠実さ。ひとつずつは小さくても、全部そろっている男性は本当に少ない。あなたは今、その「本当に少ない」側にいる。' },
+  { maxDays: 299, ja: '9ヶ月。何かに真剣に向き合ってきた人の佇まいは、それだけで絵になる。隣を歩きたいと思わせるのは、顔立ちよりもその生き方。' },
+  { maxDays: 334, ja: '10ヶ月。もう「我慢している人」には見えない。「自分の生き方を選んでいる人」に見える。その静かな余裕に、女性は自然と惹かれてしまう。' },
+  { maxDays: 364, ja: '11ヶ月。1年まであと少し。ここまで自分との約束を守り抜いた人は、大切な人との約束も守れる人。その信頼感が、どんな言葉よりあなたを語っている。' },
   { maxDays: Infinity, ja: '1年以上。人としての深みが違う。自分の内側を磨いてきた人は、外見では測れない魅力がある。そんな男性と一緒にいられたら、と思う女性は必ずいる。' },
 ];
 
@@ -333,7 +338,12 @@ const WOMENS_TIPS_EN = [
   { maxDays: 89,  en: "Two months. A sense of calm settles around you. Women are drawn to people who make them feel at ease. That feeling builds from exactly this kind of quiet change." },
   { maxDays: 119, en: "Three months. You feel like the real thing. A man who follows through is a man who can be trusted — and that makes you one of a kind." },
   { maxDays: 179, en: "Past four months. Your presence is different now. Hard to put into words, but there's a weight to you — a quiet 'something' that makes her think you're special." },
-  { maxDays: 364, en: "Half a year. It shows that you genuinely care for yourself. That means you can care for others too. Women have been looking for exactly that." },
+  { maxDays: 209, en: "Half a year. It shows that you genuinely care for yourself. That means you can care for others too. Women have been looking for exactly that." },
+  { maxDays: 239, en: "Seven months. Around you, she can simply be herself — that sense of safety has been growing. To a woman, that's worth more than any title." },
+  { maxDays: 269, en: "Eight months. Calm, clean, sincere. Each one seems small, but a man who has all three is genuinely rare. You're on the rare side now." },
+  { maxDays: 299, en: "Nine months. A man who has faced something seriously carries it in his presence. What makes her want to walk beside you isn't your looks — it's how you live." },
+  { maxDays: 334, en: "Ten months. You no longer look like a man who is 'resisting'. You look like a man who has chosen his way of life. That quiet composure draws women in naturally." },
+  { maxDays: 364, en: "Eleven months. Almost a year. A man who kept his promise to himself this long can keep promises to the people he loves. That trust speaks louder than any words." },
   { maxDays: Infinity, en: "Over a year. There's a depth to you that can't be faked. A man who has polished his inner self has a pull that goes beyond appearance. Someone is out there looking for exactly you." },
 ];
 
@@ -350,7 +360,12 @@ const FEMININE_TIPS = [
   { maxDays: 89,  ja: '2ヶ月。一緒にいると安心できると言われるようになる頃。自分が安定しているから、相手にも安心を与えられる。それが本当のフェミニンな強さ。' },
   { maxDays: 119, ja: '3ヶ月。自分への信頼が積み重なってきた。「私はできる」という感覚は、毎日の小さな選択から生まれる。あなたはそれを3ヶ月、続けてきた。' },
   { maxDays: 179, ja: '4ヶ月以上。オーラが変わっている。言葉では説明できないけれど、あなたのそばにいると心地よいと感じる人が増えているはず。それがフェミニンオーラの本質。' },
-  { maxDays: 364, ja: '半年。自分を愛することと、人を愛することが、同じ根っこから来ていると実感できる頃。自分を大切にしてきたあなたは、大切にされる関係を自然と引き寄せていく。' },
+  { maxDays: 209, ja: '半年達成。自分を愛することと、人を愛することが、同じ根っこから来ていると実感できる頃。自分を大切にしてきたあなたは、大切にされる関係を自然と引き寄せていく。' },
+  { maxDays: 239, ja: '7ヶ月。自分との約束を守り続けてきた人には、静かな自信が宿る。がんばって輝こうとしなくても、あなたはもう内側から光っている。' },
+  { maxDays: 269, ja: '8ヶ月。感情に飲み込まれない強さと、細やかに感じとる心のやわらかさ。その両方を持てる女性は本当に稀。あなたはその稀な人になりつつある。' },
+  { maxDays: 299, ja: '9ヶ月。「あの人みたいになりたい」──あなたを見てそう思い始めている人がいる頃。自分を大切にする姿は、まわりの女性の希望にもなっていく。' },
+  { maxDays: 334, ja: '10ヶ月。もう「頑張って続けている」感覚はないはず。自分を大切にすることが、呼吸のように自然になっている。それが本物になった証。' },
+  { maxDays: 364, ja: '11ヶ月。1年まであと少し。この1年で育ててきたのは習慣ではなく、自分への深い信頼。それはこの先の人生のどんな場面でも、あなたを支えてくれる。' },
   { maxDays: Infinity, ja: '1年以上。内側から溢れる輝きは、どんな化粧品にも作れない。あなたが磨いてきたのは外側ではなく、魂そのもの。その美しさは、年を重ねるほど深まっていく。' },
 ];
 
@@ -365,7 +380,12 @@ const FEMININE_TIPS_EN = [
   { maxDays: 89,  en: "Two months. People feel at ease around you now. Because you're grounded in yourself, you can offer that calm to others. That's what true feminine strength looks like." },
   { maxDays: 119, en: "Three months. Trust in yourself has been building. That quiet sense of 'I can do this' is born from small choices made every single day — and you've made them for three months." },
   { maxDays: 179, en: "Past four months. Your aura has changed. Hard to put into words, but more people are finding your presence comforting. That's the essence of feminine energy." },
-  { maxDays: 364, en: "Half a year. You're starting to feel that loving yourself and loving others come from the same root. A woman who honours herself naturally draws relationships that honour her back." },
+  { maxDays: 209, en: "Half a year. You're starting to feel that loving yourself and loving others come from the same root. A woman who honours herself naturally draws relationships that honour her back." },
+  { maxDays: 239, en: "Seven months. A woman who keeps her promises to herself carries a quiet confidence. You don't have to try to shine anymore — you already glow from within." },
+  { maxDays: 269, en: "Eight months. The strength not to be swept away by emotions, and the softness to feel deeply — a woman with both is truly rare. You are becoming that rare woman." },
+  { maxDays: 299, en: "Nine months. Someone is watching you and thinking, 'I want to be like her.' The way you honour yourself is quietly becoming hope for other women too." },
+  { maxDays: 334, en: "Ten months. It no longer feels like effort, does it? Caring for yourself has become as natural as breathing. That's the proof it has become real." },
+  { maxDays: 364, en: "Eleven months. Almost a year. What you've grown isn't a habit — it's deep trust in yourself. And that trust will hold you up in every season of life ahead." },
   { maxDays: Infinity, en: "Over a year. The radiance flowing from within is something no cosmetic can create. What you've been polishing isn't your surface — it's your soul. That beauty only deepens with time." },
 ];
 
@@ -628,6 +648,8 @@ const EFFECTS_FEMALE = [
 ];
 
 const RECOMMEND_LINKS = [
+  { type: '🇯🇵 YouTube 🎵', icon: '🎵', title: 'Cocoro Healing（運営者の音楽チャンネル）', desc: 'チャクラ瞑想・作業用ヒーリング音楽。衝動が来たときのクールダウンや、瞑想・睡眠のお供にどうぞ。', url: 'https://www.youtube.com/channel/UC4_ndDN1VBq3AIx1kvHhBYg' },
+  { type: '🇯🇵 YouTube 🎵', icon: '🎵', title: 'Cocoro Tokyo（運営者の音楽チャンネル）', desc: 'オリジナル楽曲のMVチャンネル。がんばる毎日にそっと寄り添う音楽を届けています。', url: 'https://www.youtube.com/channel/UCyQwOKhKCqm8dzxd-Hjk2kw' },
   { type: 'YouTube', icon: '▶️', title: 'Better Than Yesterday', desc: '自己改善・禁欲・習慣化をテーマにした英語チャンネル。科学的根拠に基づく解説が人気。', url: 'https://www.youtube.com/@BetterThanYesterday' },
   { type: 'YouTube', icon: '▶️', title: 'Improvement Pill', desc: 'NoFap・自己鍛錬・メンタル強化をアニメーション解説。初心者にわかりやすい。', url: 'https://www.youtube.com/@ImprovementPill' },
   { type: 'YouTube', icon: '▶️', title: 'RedFrost Motivation', desc: '禁欲・自己規律・モチベーション動画を多数公開。継続の後押しに最適。', url: 'https://www.youtube.com/@RedFrostMotivation' },
@@ -657,6 +679,8 @@ const RECOMMEND_LINKS = [
 ];
 
 const RECOMMEND_LINKS_EN = [
+  { type: 'YouTube 🎵', icon: '🎵', title: 'Cocoro Healing (by the app creator)', desc: 'Chakra meditation & healing music. Perfect for cooling down when urges hit, or for meditation and sleep.', url: 'https://www.youtube.com/channel/UC4_ndDN1VBq3AIx1kvHhBYg' },
+  { type: 'YouTube 🎵', icon: '🎵', title: 'Cocoro Tokyo (by the app creator)', desc: 'Original music videos — gentle songs to accompany your everyday journey.', url: 'https://www.youtube.com/channel/UCyQwOKhKCqm8dzxd-Hjk2kw' },
   { type: 'YouTube', icon: '▶️', title: 'Better Than Yesterday', desc: 'Self-improvement, NoFap & habit science. Research-based.', url: 'https://www.youtube.com/@BetterThanYesterday' },
   { type: 'YouTube', icon: '▶️', title: 'Improvement Pill', desc: 'Animated explanations of NoFap, discipline & mental training.', url: 'https://www.youtube.com/@ImprovementPill' },
   { type: 'YouTube', icon: '▶️', title: 'RedFrost Motivation', desc: 'NoFap, discipline & motivation videos.', url: 'https://www.youtube.com/@RedFrostMotivation' },
