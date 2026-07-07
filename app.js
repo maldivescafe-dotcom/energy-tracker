@@ -606,6 +606,10 @@ const EFFECTS_MALE = [
   { days: 30, icon: '🌟', ja: '社会的自信が増す・肌ツヤが改善する',         en: 'Social confidence grows, skin improves' },
   { days: 60, icon: '🔥', ja: '脳の報酬回路が大幅に回復する',               en: 'Brain reward circuit significantly heals' },
   { days: 90, icon: '🦁', ja: 'エネルギーが安定・創造性と活力が最大化する', en: 'Energy stabilizes, creativity and vitality peak' },
+  { days: 120, icon: '🛡️', ja: '衝動に振り回されない自分が「普通」になる',             en: 'Self-mastery becomes your new normal' },
+  { days: 180, icon: '🌊', ja: '半年達成。安定したエネルギーが人生の土台になる',       en: 'Six months: stable energy becomes your foundation' },
+  { days: 270, icon: '⭐', ja: '集中力と自信が、仕事や人間関係の成果に現れる',         en: 'Focus and confidence show as real-life results' },
+  { days: 365, icon: '👑', ja: '1年達成。揺るがない自信と自己統制が人格として定着する', en: 'One full year: unshakable confidence becomes who you are' },
 ];
 
 const EFFECTS_FEMALE = [
@@ -617,6 +621,10 @@ const EFFECTS_FEMALE = [
   { days: 30, icon: '🌟', ja: '創造性・感受性が豊かになる',                       en: 'Creativity and sensitivity flourish' },
   { days: 60, icon: '🔥', ja: 'エネルギーが安定し、本来の活力を取り戻す',         en: 'Energy stabilizes, natural vitality returns' },
   { days: 90, icon: '🦁', ja: '内なる強さと充実した自己感覚が確立される',         en: 'Inner strength and authentic self-sense established' },
+  { days: 120, icon: '🛡️', ja: '新しいリズムが定着し、心の揺らぎに強くなる',           en: 'Your new rhythm takes root; resilience deepens' },
+  { days: 180, icon: '🌊', ja: '半年達成。内側の安定が毎日の土台になる',               en: 'Six months: inner stability grounds your days' },
+  { days: 270, icon: '⭐', ja: '自分を大切にする生き方が、人間関係にも良い流れを生む', en: 'Honouring yourself brings better flow to relationships' },
+  { days: 365, icon: '👑', ja: '1年達成。深い自己信頼としなやかな強さが確立される',     en: 'One full year: deep self-trust and graceful strength' },
 ];
 
 const RECOMMEND_LINKS = [
