@@ -730,7 +730,8 @@ function getStreakMultiplier(days) {
 }
 
 function applyPenaltyCalc(currentPts, rate) {
-  const MIN_POINTS = 100;
+  // 最低保証100pt（ただし現在ptが100未満のときはそれ以上増やさない）
+  const MIN_POINTS = Math.min(100, Math.round(currentPts));
   return Math.max(MIN_POINTS, Math.round(currentPts * (1 - rate)));
 }
 
@@ -843,7 +844,7 @@ function clearAllData() {
     'energy_gender', 'energy_mode',
     'energy_sex_ejac_pct_m', 'energy_sex_ejac_pct_f',
     'energy_sex_weekly_limit', 'energy_forgiveness_days', 'energy_sex_no_ejac',
-    'energy_period_start',
+    'energy_period_start', 'energy_female_limit', 'energy_videos_enabled',
   ];
   keysToRemove.forEach(k => localStorage.removeItem(k));
   points = 0;
@@ -1414,7 +1415,7 @@ function render() {
   // Points card — detect level-up; compare by level min (language-independent)
   const currentLevelObj = getLevelObj(points);
   const currentLevel = lang === 'en' ? currentLevelObj.en : currentLevelObj.ja;
-  const didLevelUp = _lastRenderedLevel !== -1 && _lastRenderedLevel !== currentLevelObj.min;
+  const didLevelUp = _lastRenderedLevel !== -1 && currentLevelObj.min > _lastRenderedLevel;
   _lastRenderedLevel = currentLevelObj.min;
 
   if (didLevelUp) {
@@ -1672,7 +1673,7 @@ function renderActivityModal() {
     if (a.img) btn.style.backgroundImage = `url('${a.img}')`;
 
     // Junk recovery indicator
-    const isJunkRecovDay = junkRecovDate === todayStr() && (a.isJunkRecovery || a.key === 'exercise');
+    const isJunkRecovDay = junkRecovDate === todayStr() && (a.isJunkRecovery || a.key === 'workout');
     const recovTag = isJunkRecovDay && !done ? ' ★' : '';
 
     const hint = lang === 'en' ? (a.hintEn || '') : (a.hint || '');

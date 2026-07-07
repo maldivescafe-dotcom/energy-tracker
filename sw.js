@@ -1,4 +1,4 @@
-const CACHE_NAME = 'energy-v26';
+const CACHE_NAME = 'energy-v27';
 
 // 動画ファイルはここに登録しない（ブラウザのネイティブキャッシュに任せる）
 const ASSETS = [
@@ -6,6 +6,7 @@ const ASSETS = [
   './style.css',
   './app.js',
   './manifest.json',
+  './icon-192.png', './icon-512.png', './apple-touch-icon.png',
   './img/level1.jpg',  './img/level1f.jpg',
   './img/level2.jpg',  './img/level2f.jpg',
   './img/level3.jpg',  './img/level3f.jpg',
@@ -51,8 +52,15 @@ self.addEventListener('fetch', e => {
   if (e.request.url.includes('/videos/')) {
     return;
   }
-  // その他はキャッシュ優先
+  // ページ本体へのアクセス（URL末尾が / のときも）は index.html のキャッシュを返す
+  if (e.request.mode === 'navigate') {
+    e.respondWith(
+      caches.match('./index.html').then(res => res || fetch(e.request))
+    );
+    return;
+  }
+  // その他はキャッシュ優先（?v= などのクエリ違いは無視して照合）
   e.respondWith(
-    caches.match(e.request).then(res => res || fetch(e.request))
+    caches.match(e.request, { ignoreSearch: true }).then(res => res || fetch(e.request))
   );
 });
