@@ -1630,3 +1630,28 @@ footer {
   font-size: 0.88rem;
   text-decoration: none;
 }
+
+.install-qr {
+  text-align: center;
+  margin-top: 14px;
+}
+.install-qr img {
+  width: 148px;
+  height: 148px;
+  border-radius: 12px;
+  background: #fff;
+  padding: 6px;
+}
+.install-qr-caption {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.6;
+  text-align: left;
+}
+.setup-screen .install-guide {
+  width: 100%;
+  max-width: 430px;
+  margin: 28px auto 12px;
+  text-align: left;
+}

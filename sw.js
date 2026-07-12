@@ -1,11 +1,11 @@
-const CACHE_NAME = 'energy-v30';
+const CACHE_NAME = 'energy-v31';
 
 // 動画ファイルはここに登録しない（ブラウザのネイティブキャッシュに任せる）
 const ASSETS = [
   './index.html',
   './style.css',
   './app.js',
-  './manifest.json',
+  './manifest.json', './qr-app.png',
   './icon-192.png', './icon-512.png', './apple-touch-icon.png',
   './img/level1.jpg',  './img/level1f.jpg',
   './img/level2.jpg',  './img/level2f.jpg',
