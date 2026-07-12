@@ -1564,3 +1564,69 @@ footer {
 
 /* ========== HIDDEN ========== */
 .hidden { display: none !important; }
+
+/* ========== INSTALL GUIDE ========== */
+.install-guide {
+  background: var(--card);
+  border: 1px solid rgba(245,200,66,0.18);
+  border-radius: var(--radius);
+  padding: 20px 18px;
+  margin: 24px 0 8px;
+}
+.install-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+.install-note {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-bottom: 14px;
+}
+.install-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.install-num {
+  flex: 0 0 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: rgba(245,200,66,0.15);
+  color: var(--accent);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.install-step-title {
+  font-weight: 600;
+  font-size: 0.92rem;
+  color: var(--text);
+}
+.install-step-desc {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+.install-privacy {
+  font-size: 0.75rem;
+  color: var(--muted);
+  background: var(--card2);
+  border-radius: 12px;
+  padding: 12px 14px;
+  margin-top: 14px;
+  line-height: 1.6;
+}
+.install-more {
+  display: block;
+  text-align: center;
+  margin-top: 14px;
+  color: var(--accent2);
+  font-size: 0.88rem;
+  text-decoration: none;
+}
